@@ -13,6 +13,10 @@
     <context:component-scan base-package="web.template"></context:component-scan>
     <mvc:default-servlet-handler/>
 
+    <mvc:resources mapping="/dist/**" location="/dist/" />
+    <mvc:resources mapping="/plugins/**" location="/plugins/" />
+    <mvc:resources mapping="/bootstrap/**" location="/bootstrap/" />
+
     <!-- 配置VelocityConfigurer，负责在spring中设置Velocity引擎。通过属性resourceLoaderPath告诉Velocity到哪里寻找它的模板。
        通常将模板放到WEB-INF下的某个子目录下，可以保证这些模板不能被直接访问。-->
     <bean id="velocityConfig"

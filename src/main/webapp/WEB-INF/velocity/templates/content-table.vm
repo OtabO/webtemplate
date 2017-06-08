@@ -1,0 +1,136 @@
+<link rel="stylesheet" href="paginator/lib/pagination.css" />
+<script type="text/javascript" src="paginator/lib/jquery.min.js"></script>
+<script type="text/javascript" src="paginator/lib/jquery.pagination.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        //这是一个非常简单的demo实例，让列表元素分页显示
+        //回调函数的作用是显示对应分页的列表项内容
+        //回调函数在用户每次点击分页链接的时候执行
+        //参数page_index{int整型}表示当前的索引页
+        var initPagination = function() {
+            // 创建分页
+            $("#pagination").pagination(num_entries, {
+                num_edge_entries: 1, //边缘页数
+                num_display_entries: 4, //主体页数
+                callback: pageselectCallback,
+                items_per_page:1 //每页显示1项
+            });
+        }();
+
+        function pageselectCallback(page_index, jq){
+            var new_content = $("#hiddenresult div.result:eq("+page_index+")").clone();
+            $("#Searchresult").empty().append(new_content); //装载对应分页的内容
+            return false;
+        }
+    });
+</script>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Trident</td>
+                        <td>Internet
+                            Explorer 4.0
+                        </td>
+                        <td>Win 95+</td>
+                        <td> 4</td>
+                        <td>X</td>
+                    </tr>
+                    <tr>
+                        <td>Misc</td>
+                        <td>IE Mobile</td>
+                        <td>Windows Mobile 6</td>
+                        <td>-</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>Misc</td>
+                        <td>PSP browser</td>
+                        <td>PSP</td>
+                        <td>-</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>Other browsers</td>
+                        <td>All others</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>U</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div id="pagination" class="pagination"><!-- 这里显示分页 --></div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Presto</td>
+                        <td>Opera 9.0</td>
+                        <td>Win 95+ / OSX.3+</td>
+                        <td>-</td>
+                        <td>A</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Rendering engine</th>
+                        <th>Browser</th>
+                        <th>Platform(s)</th>
+                        <th>Engine version</th>
+                        <th>CSS grade</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
