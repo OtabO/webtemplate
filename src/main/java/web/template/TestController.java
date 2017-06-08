@@ -20,8 +20,8 @@ public class TestController {
         return "index";
     }
 
-    @RequestMapping(value = "/index1",method = RequestMethod.GET)
+    @RequestMapping(value = "/error",method = RequestMethod.GET)
     public String index1(){
-        return "index1";
+        return "error500";
     }
 }
